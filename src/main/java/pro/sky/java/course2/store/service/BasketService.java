@@ -1,12 +1,10 @@
 package pro.sky.java.course2.store.service;
 
-import pro.sky.java.course2.store.data.Item;
-
-import java.util.Collection;
+import java.util.List;
 
 public interface BasketService {
 
+    List<Integer> addItem(List<Integer> addItem);
 
-
-    Collection<Item> getItem();
+    List<Integer> getItems();
 }

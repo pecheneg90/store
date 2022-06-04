@@ -1,37 +1,25 @@
 package pro.sky.java.course2.store.data;
 
-import java.util.Objects;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+@SessionScope
 public class Item {
-    int id;
+    private final List<Integer> itemList;
 
-    public Item(int itemId) {
-        this.id = itemId;
+    public Item() {
+        this.itemList = new ArrayList<>();
     }
 
-    public int getId() {
-        return id;
+    public void addItems(List<Integer> item) {
+        itemList.addAll(item);
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return id == item.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public List<Integer> getItems() {
+        return itemList;
     }
 }
